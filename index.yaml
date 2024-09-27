@@ -1,0 +1,19 @@
+apiVersion: v1
+entries:
+  vega-metrics-agent:
+  - apiVersion: v2
+    appVersion: 1.0.0-rc2
+    created: "2024-09-27T12:38:04.952511333-07:00"
+    dependencies:
+    - condition: metrics-server.enabled
+      name: metrics-server
+      repository: https://kubernetes-sigs.github.io/metrics-server/
+      version: 3.12.1
+    description: A Helm chart for deploying Vega Metrics Agent
+    digest: 091342464f272ee6c6c8d60b80ae2594ceb3b9ab68d99efe5763244bf8eaf050
+    name: vega-metrics-agent
+    type: application
+    urls:
+    - https://vegacloud.github.io/charts/vega-metrics-agent-1.0.0-rc2.tgz
+    version: 1.0.0-rc2
+generated: "2024-09-27T12:38:04.951011123-07:00"
