@@ -152,8 +152,18 @@
 helm repo add vegacloud https://vegacloud.github.io/charts
 helm repo update
 
-# Install the metrics agent
-helm install vega-metrics vegacloud/vega-metrics-agent   --set vega.clientId="your-client-id"   --set vega.clientSecret="your-client-secret"   --set vega.orgSlug="your-org-slug"   --set vega.clusterName="your-cluster-name"</code></pre>
+# Install the latest version of the metrics agent
+helm install vega-metrics vegacloud/vega-metrics-agent   --set vega.clientId="your-client-id"   --set vega.clientSecret="your-client-secret"   --set vega.orgSlug="your-org-slug"   --set vega.clusterName="your-cluster-name"
+
+# Or install a specific version
+helm install vega-metrics vegacloud/vega-metrics-agent --version 1.0.0   --set vega.clientId="your-client-id"   --set vega.clientSecret="your-client-secret"   --set vega.orgSlug="your-org-slug"   --set vega.clusterName="your-cluster-name"
+
+# To upgrade to the latest version
+helm repo update
+helm upgrade vega-metrics vegacloud/vega-metrics-agent
+
+# Or upgrade to a specific version
+helm upgrade vega-metrics vegacloud/vega-metrics-agent --version 1.0.0</code></pre>
         </div>
     </section>
 
