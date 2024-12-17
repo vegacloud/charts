@@ -21,19 +21,16 @@ with open(html_file, 'w') as f:
             background-color: #f8f9fa;
             font-family: 'Arial', sans-serif;
         }
-        .container {
-            max-width: 900px;
-            margin-top: 30px;
-        }
         .header {
             background-color: #007bff;
             color: white;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 0px;
             text-align: center;
+            width: 100%;
         }
         .logo {
-            max-width: 120px;  /* Set max width of logo */
+            max-width: 150px;  /* Set max width of logo */
             margin-bottom: 20px;
         }
         .list-group-item {
@@ -60,16 +57,17 @@ with open(html_file, 'w') as f:
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Logo at the top -->
+    <!-- Full-width header section -->
+    <div class="header">
         <div class="text-center">
-            <img src="https://vegacloud.github.io/assets/logo.png" alt="Vega Cloud Logo" class="logo">
+            <img src="https://vegacloud.github.io/charts/assets/logo.png" alt="Vega Cloud Logo" class="logo">
         </div>
+        <h1>Vega Cloud Kubernetes Metrics Agent Helm Chart Repository</h1>
+        <p class="lead">A collection of Helm charts for deploying the Vega Cloud Kubernetes Metrics Agent.</p>
+    </div>
 
-        <div class="header">
-            <h1>Vega Cloud Kubernetes Metrics Agent Helm Chart Repository</h1>
-            <p class="lead">A collection of Helm charts for deploying the Vega Cloud Kubernetes Metrics Agent.</p>
-        </div>
+    <!-- Full-width chart list section -->
+    <div class="container-fluid">
         <div class="mt-4">
             <h3>Available Helm Charts</h3>
             <ul class="list-group">
@@ -90,6 +88,7 @@ with open(html_file, 'w') as f:
     f.write("""        </ul>
         </div>
     </div>
+
     <footer>
         <p>&copy; 2024 Vega Cloud. All rights reserved.</p>
     </footer>
