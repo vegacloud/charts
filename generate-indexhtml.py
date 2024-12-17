@@ -182,7 +182,8 @@ helm install vega-metrics vegacloud/vega-metrics-agent \
 
     # Enhanced card template
     for file_name in chart_files:
-        version = file_name.split('-')[-1].replace('.tgz', '')
+        # Extract version from vega-metrics-agent-1.0.0.tgz or vega-metrics-agent-1.0.0-<tag>.tgz
+        version = '-'.join(file_name.split('-')[3:]).replace('.tgz', '')
         chart_url = f"https://vegacloud.github.io/charts/{file_name}"
         f.write(f"""
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
