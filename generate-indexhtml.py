@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+import os
+
+# Path to your chart directory
+chart_dir = './'
+
+# Path to the index.html file
+html_file = 'index.html'
+
+# Open the HTML file for writing
+with open(html_file, 'w') as f:
+    f.write("""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -63,16 +73,21 @@
         <div class="mt-4">
             <h3>Available Helm Charts</h3>
             <ul class="list-group">
-<li class="list-group-item">
-                        <a href="https://vegacloud.github.io/charts/vega-metrics-agent-1.1.0-rc1.tgz">vega-metrics-agent-1.1.0-rc1.tgz</a>
+""")
+
+    # List the files in the chart directory and sort them in descending order
+    chart_files = [file_name for file_name in os.listdir(chart_dir) if file_name.endswith(".tgz")]
+    chart_files.sort(reverse=True)  # Sort files in descending order
+
+    # Create list items for each chart file in the sorted list
+    for file_name in chart_files:
+        chart_url = f"https://vegacloud.github.io/charts/{file_name}"
+        f.write(f"""<li class="list-group-item">
+                        <a href="{chart_url}">{file_name}</a>
                     </li>
-<li class="list-group-item">
-                        <a href="https://vegacloud.github.io/charts/vega-metrics-agent-1.0.0.tgz">vega-metrics-agent-1.0.0.tgz</a>
-                    </li>
-<li class="list-group-item">
-                        <a href="https://vegacloud.github.io/charts/vega-metrics-agent-1.0.0-rc2.tgz">vega-metrics-agent-1.0.0-rc2.tgz</a>
-                    </li>
-        </ul>
+""")
+
+    f.write("""        </ul>
         </div>
     </div>
     <footer>
@@ -82,4 +97,6 @@
     <!-- Bootstrap JS for interactivity (if needed) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-wvA4WQft88R6P88aYgJ4bfz6pyZfi7n/KxOyzQ6eZOaJNEpB6T5oVx8cC5FuW8Vg" crossorigin="anonymous"></script>
 </body>
-</html>
+</html>""")
+
+print("index.html has been generated.")
