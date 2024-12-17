@@ -15,87 +15,117 @@ with open(html_file, 'w') as f:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vega Cloud Kubernetes Metrics Agent Helm Chart Repository</title>
     <!-- Bootstrap CSS for modern styling -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJf6IQfYAOoZ2NuQz5/p9v0ImtFhgzqF3nDLhM9zwzbsAljLQlmTX8vJ2aA6" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-R6M0xDQrYqD8En5p+prGBpENbBU5Fw9c86wlORjaAs4pVSS0fuBSdWi0O9V9LS1y" crossorigin="anonymous">
     <style>
         body {
             background-color: #f8f9fa;
             font-family: 'Arial', sans-serif;
         }
-        .header {
-            background-color: #007bff;
-            color: white;
-            padding: 20px;
-            border-radius: 0px;
-            text-align: center;
-            width: 100%;
+        .navbar-brand img {
+            height: 30px;
+            margin-right: 10px;
         }
-        .logo {
-            max-width: 150px;  /* Set max width of logo */
+        .hero {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: #fff;
+        }
+        .hero h1 {
+            font-weight: 700;
             margin-bottom: 20px;
         }
-        .list-group-item {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        .hero p.lead {
+            font-size: 1.25rem;
+            font-weight: 300;
         }
-        .list-group-item a {
-            color: #007bff;
+        .card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+        }
+        .card-body a {
             text-decoration: none;
+            color: #007bff;
         }
-        .list-group-item a:hover {
+        .card-body a:hover {
             text-decoration: underline;
         }
         footer {
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #e9ecef;
             text-align: center;
-            margin-top: 50px;
             font-size: 0.9rem;
             color: #6c757d;
         }
     </style>
 </head>
 <body>
-    <!-- Full-width header section -->
-    <div class="header">
-        <div class="text-center">
-            <img src="https://vegacloud.github.io/charts/assets/logo.png" alt="Vega Cloud Logo" class="logo">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="https://vegacloud.github.io/charts/assets/logo.png" alt="Vega Cloud Logo">
+                Vega Cloud Metrics Agent Charts
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="ms-auto">
+                    <a href="https://docs.vegacloud.io/docs/providers/kubernetes" target="_blank" class="btn btn-light btn-sm">Documentation</a>
+                </div>
+            </div>
         </div>
-        <h1>Vega Cloud Kubernetes Metrics Agent Helm Chart Repository</h1>
-        <p class="lead">A collection of Helm charts for deploying the Vega Cloud Kubernetes Metrics Agent.</p>
-    </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero text-center">
+        <div class="container">
+            <h1>Vega Cloud Kubernetes Metrics Agent Helm Chart Repository</h1>
+            <p class="lead">A collection of Helm charts for deploying the Vega Cloud Kubernetes Metrics Agent.</p>
+            <p>For detailed installation and configuration instructions, please visit our <a href="https://docs.vegacloud.io/docs/providers/kubernetes" target="_blank" style="color: #fff; text-decoration: underline;">documentation</a>.</p>
+        </div>
+    </section>
 
-    <!-- Full-width chart list section -->
-    <div class="container-fluid">
-        <div class="mt-4">
-            <h3>Available Helm Charts</h3>
-            <ul class="list-group">
+    <!-- Chart List Section -->
+    <div class="container my-5">
+        <h3 class="mb-4">Available Helm Charts</h3>
+        <div class="row g-4">
 """)
 
     # List the files in the chart directory and sort them in descending order
     chart_files = [file_name for file_name in os.listdir(chart_dir) if file_name.endswith(".tgz")]
     chart_files.sort(reverse=True)  # Sort files in descending order
 
-    # Create list items for each chart file in the sorted list
+    # Create card for each chart file
     for file_name in chart_files:
         chart_url = f"https://vegacloud.github.io/charts/{file_name}"
-        f.write(f"""<li class="list-group-item">
-                        <a href="{chart_url}">{file_name}</a>
-                    </li>
-""")
+        f.write(f"""
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <h5 class="card-title">{file_name}</h5>
+                        <a href="{chart_url}" class="mt-auto">Download Chart</a>
+                    </div>
+                </div>
+            </div>
+        """)
 
-    f.write("""        </ul>
-        </div>
+    f.write("""    </div>
     </div>
 
     <footer>
         <p>&copy; 2024 Vega Cloud. All rights reserved.</p>
     </footer>
 
-    <!-- Bootstrap JS for interactivity (if needed) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-wvA4WQft88R6P88aYgJ4bfz6pyZfi7n/KxOyzQ6eZOaJNEpB6T5oVx8cC5FuW8Vg" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS for interactivity -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-qRpHygAuK4xeNH4wyEY8+dOn8dn5rSd9iXS/lD4t/q+JYBGeSBbu7P5Fr3fZ6/uY" crossorigin="anonymous"></script>
 </body>
 </html>""")
 
-print("index.html has been generated.")
+print("index.html has been generated with a Documentation link.")
