@@ -120,6 +120,13 @@ with open(html_file, 'w') as f:
         .footer-links a:hover {
             color: #007bff;
         }
+
+        .hero a.btn-light:visited {
+            color: #212529;  /* Default dark color for light buttons */
+        }
+        .hero a:visited {
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>   
@@ -155,8 +162,11 @@ helm repo add vegacloud https://vegacloud.github.io/charts
 helm repo update
 
 # Install the metrics agent
-helm install vega-metrics-agent vegacloud/vega-metrics-agent \
-    --set vegacloud.apiKey=your-api-key</code></pre>
+helm install vega-metrics vegacloud/vega-metrics-agent \
+  --set vega.clientId="your-client-id" \
+  --set vega.clientSecret="your-client-secret" \
+  --set vega.orgSlug="your-org-slug" \
+  --set vega.clusterName="your-cluster-name"</code></pre>
         </div>
     </section>
 
@@ -198,8 +208,8 @@ helm install vega-metrics-agent vegacloud/vega-metrics-agent \
         <div class="container py-4">
             <div class="footer-links mb-3">
                 <a href="https://vegacloud.io">Website</a>
-                <a href="https://docs.vegacloud.io">Documentation</a>
-                <a href="https://github.com/vegacloud">GitHub</a>
+                <a href="https://docs.vegacloud.io/docs/providers/kubernetes">Documentation</a>
+                <a href="https://github.com/vegacloud/vega-metrics-agent">GitHub</a>
                 <a href="https://vegacloud.io/contact">Contact</a>
             </div>
             <p>&copy; 2024-2025 Vega Cloud. All rights reserved.</p>
