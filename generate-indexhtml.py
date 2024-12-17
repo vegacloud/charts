@@ -72,14 +72,6 @@ with open(html_file, 'w') as f:
                 <img src="https://vegacloud.github.io/charts/assets/logo.png" alt="Vega Cloud Logo">
                 Vega Cloud Metrics Agent Charts
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="ms-auto">
-                    <a href="https://docs.vegacloud.io/docs/providers/kubernetes" target="_blank" class="btn btn-light btn-sm">Documentation</a>
-                </div>
-            </div>
         </div>
     </nav>
     
@@ -88,7 +80,6 @@ with open(html_file, 'w') as f:
         <div class="container">
             <h1>Vega Cloud Kubernetes Metrics Agent Helm Chart Repository</h1>
             <p class="lead">A collection of Helm charts for deploying the Vega Cloud Kubernetes Metrics Agent.</p>
-            <p>For detailed installation and configuration instructions, please visit our <a href="https://docs.vegacloud.io/docs/providers/kubernetes" target="_blank" style="color: #fff; text-decoration: underline;">documentation</a>.</p>
         </div>
     </section>
 
@@ -120,7 +111,7 @@ with open(html_file, 'w') as f:
     </div>
 
     <footer>
-        <p>&copy; 2024 Vega Cloud. All rights reserved.</p>
+        <p>&copy; 2024-2025 Vega Cloud. All rights reserved.</p>
     </footer>
 
     <!-- Bootstrap JS for interactivity -->
@@ -128,4 +119,4 @@ with open(html_file, 'w') as f:
 </body>
 </html>""")
 
-print("index.html has been generated with a Documentation link.")
+print("index.html has been generated with a modern, professional design.")
