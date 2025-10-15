@@ -3,22 +3,22 @@ entries:
   vega-metrics-agent:
   - apiVersion: v2
     appVersion: 1.1.5
-    created: "2025-10-15T09:32:38.913520857-07:00"
+    created: "2025-10-15T09:36:37.890065366-07:00"
     description: A Helm chart for deploying Vega Metrics Agent
     digest: ed7ea321d0203edd64e1b68a746e10fb863f57f803446e3e9b9dbb71327453ba
     name: vega-metrics-agent
     type: application
     urls:
-    - vega-metrics-agent-1.1.5.tgz
+    - https://vegacloud.github.io/charts/vega-metrics-agent-1.1.5.tgz
     version: 1.1.5
   - apiVersion: v2
     appVersion: 1.1.4
-    created: "2025-10-15T09:32:38.913126672-07:00"
+    created: "2025-10-15T09:36:37.889812925-07:00"
     description: A Helm chart for deploying Vega Metrics Agent
     digest: 7740a6060b0c6179e966d750dcc4c49c985dbf7a031536cc7a5967cfbc838916
     name: vega-metrics-agent
     type: application
     urls:
-    - vega-metrics-agent-1.1.4.tgz
+    - https://vegacloud.github.io/charts/vega-metrics-agent-1.1.4.tgz
     version: 1.1.4
-generated: "2025-10-15T09:32:38.912329576-07:00"
+generated: "2025-10-15T09:36:37.889334724-07:00"
